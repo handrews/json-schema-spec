@@ -207,16 +207,43 @@
                 </t>
             </section>
 
-            <section title="Keywords and instance primitive types">
+            <section title="Keyword applicability to instance primitive types">
                 <t>
                     Most validation keywords only limit the range of values within a certain primitive type.
                     When the primitive type of the instance is not of the type targeted by the keyword, the
-                    validation succeeds.
+                    validation succeeds.  This is a natural consequence of the "type" keyword validation
+                    operating independently from all other keywords.
                 </t>
                 <t>
-                    For example, the "maxLength" keyword will only restrict certain strings (that are too long) from being valid.
-                    If the instance is a number, boolean, null, array, or object, the keyword passes validation.
+                    To illustrate the utility of this behavior, consider that the only way to describe
+                    odd integers is with "multipleOf", which restricts certain numeric values but
+                    successfully validates all other types (string, boolean, null, array, and object).
                 </t>
+                <figure>
+                    <preamble>
+                        An odd integer is a JSON number that is a multiple of 1 but not a multiple of 2:
+                    </preamble>
+                    <artwork>
+<![CDATA[
+{
+    "type": "number",
+    "multipleOf": 1,
+    "not": {
+        "multipleOf": 2
+    }
+}
+]]>
+                    </artwork>
+                    <postamble>
+                        If "multipleOf" automatically imposed a requirement of type number, then that
+                        requirement would be negated by "not".  That would mean that an instance would
+                        have to both be a number (to satisfy the outer schema) and not be a number
+                        (to satisfy the negation of the inner schema) in order to successfully validate.
+                        To avoid producing an impossible schema, the instance type must not be constrained
+                        except by the "type" keyword.  So in this example, the type is validated by the
+                        outer schema, but left unconstrained within the "not".
+                    </postamble>
+                </figure>
             </section>
         </section>
 
