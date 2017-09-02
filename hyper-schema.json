@@ -22,7 +22,8 @@
                     "format": "uri-template"
                 },
                 "hrefPointers": {
-                    "description": "a map of variable names to relative instance JSON Pointers, which adjust the instance location from which template variable resolution begins",
+                    "description": "a map of variable names to relative instance JSON Pointers, which adjust the instance location from which template variable resolution begins"
+                },
                 "hrefSchema": {
                     "description": "a schema for validating user input to the URI template, where the input is in the form of a JSON object with property names matching variable names in \"href\"",
                     "allOf": [ {"$ref": "#"} ]
