@@ -679,8 +679,8 @@
                 </t>
                 <figure>
                     <preamble>
-                        Recall that a Relative JSON Pointer which is not also a regular
-                        JSON Pointer begins with a number indicating how many levels
+                        Recall that a Relative JSON Pointer, which is also a regular
+                        JSON Pointer, begins with a number indicating how many levels
                         up to move before applying the remainder of the pointer, if any, in the
                         same manner as a regular JSON Pointer.  Consider the following schema
                         for n-ary tree nodes, where a node is identified by its own id as well
@@ -716,12 +716,12 @@
                     </artwork>
                 </figure>
                 <t>
-                    The context node's id resolves with the standard process and
-                    therefore does not appear in "hrefPointers".  The root id is located
-                    using an absolute JSON Pointer, while the parent node
-                    uses a Relative JSON Pointer, going up two levels (one level up
-                    is the array of children, two levels up is the whole parent node),
-                    and then looking at the "id" field from that point.
+                    In "self" link, the context node's id resolves with the standard process and
+                    therefore does not appear in "hrefPointers".  In both "self" and "up" links,
+                    the root id is located using an absolute JSON Pointer. Finally, in "up" link,
+                    the parent node uses a Relative JSON Pointer, going up two levels (one level up
+                    is the array of children, two levels up is the whole parent node), and then
+                    looking at the "id" field from that point.
                 </t>
                 <figure>
                     <preamble>
