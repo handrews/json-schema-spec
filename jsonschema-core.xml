@@ -3756,9 +3756,9 @@ User-Agent: product-name/5.4.1 so-cool-json-schema/1.0.2 curl/7.43.0
                     <t hangText="draft-handrews-json-schema-03">
                         <list style="symbols">
                             <t>"$schema" MAY change for embedded resources</t>
-                            <t></t>
-                            <t></t>
-                            <t></t>
+                            <t>Array-value "items" functionality is now "prefixItems"</t>
+                            <t>"items" subsumes the old function of "additionalItems"</t>
+                            <t>"contains" and "unevaluatedItems" interactions now specified</t>
                             <t></t>
                             <t></t>
                             <t></t>
